@@ -1,51 +1,62 @@
-// Backup array of old sayings, frog jokes, and wisdom if API lags
-const backupQuotes = [
-    "It is Wednesday, my dudes.",
-    "Don't worry, be hoppy.",
-    "You cannot catch the fly if you become the fly.",
-    "Unbothered. Moisturized. Happy. In My Lane.",
-    "Look before you leap!",
+
+const frogJokes = [
+    "What do you call a frog with duct tape on its mouth? ... Un-ribbit-able!",
+    "Where do frogs hang out when they want a drink? ... The croak-tail lounge.",
+    "What happens when a frog park illegally? ... It gets toad away!",
+    "Why are frogs so happy? ... Because they eat whatever bugs them.",
+    "What do you call a frog that lies? ... An am-fib-ian!",
+    "What is a frog's favorite year? ... A leap year, obviously.",
+    "What do stylish frogs wear? ... Jumpsuits.",
+    "Where do frogs keep their money? ... In a river bank.",
+    "What do you get when you cross a frog and a baseball player? ... A player who catches flies with his tongue."
+];
+
+
+const wiseSayings = [
+    "Look before you leap.",
     "A frog in a well cannot conceive of the ocean.",
-    "You've got to kiss a lot of frogs before you find your prince.",
-    "Time flies like an arrow; fruit flies like a banana.",
-    "Croak loudly, carry a big stick.",
-    "We are all just tadpoles in the soup of life."
+    "You have to kiss a lot of frogs before you find your prince.",
+    "The mind is everything. What you think, you become.",
+    "Still water runs deep.",
+    "Do not wish for a light load, wish for a strong back.",
+    "Patience is a bitter plant, but its fruit is sweet.",
+    "A journey of a thousand miles begins with a single step.",
+    "Even a small frog can cast a large shadow in the setting sun."
 ];
 
 const frog = document.getElementById('frog');
 const quoteDisplay = document.getElementById('quote-display');
 
-frog.addEventListener('click', async () => {
-    // 1. Instantly trigger confetti on click (no waiting for API)
+
+let isFrogTurn = true; 
+
+frog.addEventListener('click', () => {
+   
     confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 }
+        particleCount: 1100,
+      spread: 200,
+      origin: { y: 0.7 }
     });
 
-    // Fade out text temporarily while fetching new text
+   
     quoteDisplay.classList.remove('show');
 
-    try {
-        // 2. Fetch from a live, free joke API
-        const response = await fetch('https://official-joke-api.appspot.com/random_joke');
-        
-        if (!response.ok) throw new Error('API down');
-        
-        const data = await response.json();
-        
-        // Combine setup and punchline for a clean display
-        setTimeout(() => {
-            quoteDisplay.textContent = `${data.setup} ... ${data.punchline}`;
-            quoteDisplay.classList.add('show');
-        }, 100);
+    let chosenText = "";
 
-    } catch (error) {
-        // 3. Fallback smoothly to old sayings if internet drops/slows down
-        const randomIndex = Math.floor(Math.random() * backupQuotes.length);
-        setTimeout(() => {
-            quoteDisplay.textContent = backupQuotes[randomIndex];
-            quoteDisplay.classList.add('show');
-        }, 100);
+    if (isFrogTurn) {
+        const randomIndex = Math.floor(Math.random() * frogJokes.length);
+        chosenText = frogJokes[randomIndex];
+    } else {
+        const randomIndex = Math.floor(Math.random() * wiseSayings.length);
+        chosenText = wiseSayings[randomIndex];
     }
+
+  
+    isFrogTurn = !isFrogTurn;
+
+   
+    setTimeout(() => {
+        quoteDisplay.textContent = chosenText;
+        quoteDisplay.classList.add('show');
+    }, 120);
 });
