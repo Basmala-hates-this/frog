@@ -57,8 +57,8 @@ let clickCount = 0;
 frog.addEventListener('click', () => {
     // CONFETTI (untouched)
     confetti({
-        particleCount: 1100,
-        spread: 200,
+        particleCount: 2000,
+        spread: 300,
         origin: { y: 0.7 }
     });
 

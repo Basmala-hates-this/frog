@@ -41,8 +41,7 @@ body {
     font-weight: bold;
     color: #000000;
     min-height: 60px;
-    max-width: 100px;
-    width: 80%;
+    max-width: 90%;
     opacity: 1;
     transition: opacity 0.2s ease-in-out;
     text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
