@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #74c69d; /* Somewhat green screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    text-align: center;
+    user-select: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#frog {
+    font-size: 120px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    display: inline-block;
+}
+
+/* Squash effect when clicked */
+#frog:active {
+    transform: scale(0.8) translateY(10px);
+}
+
+#quote-display {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1b4332;
+    min-height: 60px;
+    max-width: 80%;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
+}
+
+#quote-display.show {
+    opacity: 1;
+}
