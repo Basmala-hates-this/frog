@@ -12,7 +12,8 @@ const frogJokes = [
     "Why don't frogs drive? ... They prefer to hop a ride!",
     "What's a frog's favorite game? ... Leapfrog!",
     "What do frogs order at restaurants? ... French flies.",
-    "Why did the frog go to the bank? ... To get a jump-start on his loan."
+    "Why did the frog go to the bank? ... To get a jump-start on his loan.",
+    "get a froggy glass of water.",
 ];
 
 const wiseOldQuotes = [
@@ -24,7 +25,8 @@ const wiseOldQuotes = [
     "Patience is a bitter plant, but its fruit is sweet.",
     "A journey of a thousand miles begins with a single step.",
     "The frog does not drink up the pond in which it lives.",
-    "The loudest croak does not make the wisest frog."
+    "The loudest croak does not make the wisest frog.",
+    "get a froggy glass of water.",
 ];
 
 
@@ -42,6 +44,7 @@ const ancientFrogProverbs = [
     "To understand the water, you must first sit in it.",
     "The frog who never leaps never lands, but also never flies.",
     "Three things make a wise frog: silence, patience, and gratitude for the rain.",
+    "get a froggy glass of water.",
     "Yesterday's rain fills today's puddles for tomorrow's tadpoles."
 ];
 
@@ -68,12 +71,12 @@ frog.addEventListener('click', () => {
     if (clickCount % 3 === 0) {
       
         const randomIndex = Math.floor(Math.random() * frogJokes.length);
-        chosenText = frogJokes[randomIndex];
+        chosenText = "🐸 " + frogJokes[randomIndex] + " 🐸";
     } 
     else if (clickCount % 3 === 1) {
        
         const randomIndex = Math.floor(Math.random() * wiseOldQuotes.length);
-        chosenText = wiseOldQuotes[randomIndex];
+        chosenText ="🐸 " + wiseOldQuotes[randomIndex] + " 🐸";
     }
     else {
         
